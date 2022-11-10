@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+
+# Distribution directories
+dist/
+
+package-lock.json
+
+.env
+.env.local
