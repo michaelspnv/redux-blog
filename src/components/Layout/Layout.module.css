@@ -26,7 +26,18 @@
   color: #666;
 }
 
-.regs {
+.signed-in-regs {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 550px;
+  height: 100%;
+}
+
+.signed-out-regs {
   position: absolute;
   top: 0;
   right: 10px;

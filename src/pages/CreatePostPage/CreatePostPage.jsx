@@ -40,6 +40,7 @@ function CreatePostPage() {
 
   return (
     <form className={styles.form}>
+      <h1 className={styles.title}>Create New Post</h1>
       <InputField
         id="title"
         labelText="Post Title"
@@ -56,7 +57,6 @@ function CreatePostPage() {
       />
       <Link
         to="/posts"
-        type="submit"
         onClick={() => handleCreate(id, titleVal, bodyVal, description)}
         className={styles["create-button"]}
       >

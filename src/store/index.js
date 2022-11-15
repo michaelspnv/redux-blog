@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import {
   persistStore,
   persistReducer,
@@ -10,12 +10,18 @@ import {
   REGISTER,
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
-import { rootReducer } from "./slices/postsSlice"
+import { postsReducer } from "./slices/postsSlice"
+import { userReducer } from "./slices/userSlice"
 
 const persistConfig = {
   key: "root",
   storage,
 }
+
+const rootReducer = combineReducers({
+  posts: postsReducer,
+  user: userReducer,
+})
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

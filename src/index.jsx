@@ -19,4 +19,8 @@ function Main() {
 }
 
 const root = createRoot(document.getElementById("root"))
-root.render(<Main />)
+root.render(
+  <React.StrictMode>
+    <Main />
+  </React.StrictMode>
+)

@@ -1,8 +1,22 @@
 import React from "react"
-import { Link, Outlet } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
+import { removeUser } from "../../store/slices/userSlice"
+import { Link, Outlet, useNavigate } from "react-router-dom"
 import styles from "./Layout.module.css"
 
 function Layout() {
+  const user = useSelector((state) => state.user)
+  const isAuth = user.token
+
+  const dispatch = useDispatch()
+
+  const navigate = useNavigate()
+
+  const handleSignOut = () => {
+    dispatch(removeUser())
+    navigate("/sign-in")
+  }
+
   return (
     <React.Fragment>
       <div className={styles["list-wrapper"]}>
@@ -17,14 +31,23 @@ function Layout() {
             About
           </Link>
         </ul>
-        <div className={styles.regs}>
-          <Link className={styles["regs-link"]} to="/sign-up">
-            Sign Up
-          </Link>
-          <Link className={styles["regs-link"]} to="/sign-in">
-            Sign In
-          </Link>
-        </div>
+        {isAuth ? (
+          <div className={styles["signed-in-regs"]}>
+            <p>You signed in as {user.email}.</p>
+            <button className={styles["signout-btn"]} onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <div className={styles["signed-out-regs"]}>
+            <Link className={styles["regs-link"]} to="/sign-up">
+              Sign Up
+            </Link>
+            <Link className={styles["regs-link"]} to="/sign-in">
+              Sign In
+            </Link>
+          </div>
+        )}
       </div>
       <div className={styles.content}>
         <Outlet />

@@ -1,4 +1,4 @@
-import { createSlice, combineReducers } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
 export const postsSlice = createSlice({
   name: "posts",
@@ -13,10 +13,6 @@ export const postsSlice = createSlice({
   },
 })
 
-const postsReducer = postsSlice.reducer
-
-export const rootReducer = combineReducers({
-  posts: postsReducer,
-})
+export const postsReducer = postsSlice.reducer
 
 export const { createPost, deletePost } = postsSlice.actions
