@@ -2,9 +2,10 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { createPost } from "../../store/slices/postsSlice"
-import styles from "./Create-post-form.module.css"
+import { InputField } from "../../components/InputField"
+import styles from "./Create-post-page.module.css"
 
-function CreatePostForm() {
+function CreatePostPage() {
   const dispatch = useDispatch()
   const posts = useSelector((state) => state.posts)
 
@@ -39,32 +40,20 @@ function CreatePostForm() {
 
   return (
     <form className={styles.form}>
-      <div className={styles.field}>
-        <label htmlFor="title" className={styles.label}>
-          Title
-        </label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          onChange={(e) => setTitleVal(e.target.value)}
-          value={titleVal}
-          className={styles["input-title"]}
-        />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="body" className={styles.label}>
-          Post Body
-        </label>
-        <textarea
-          type="text"
-          name="body"
-          id="body"
-          onChange={(e) => handleChangeTextArea(e)}
-          value={bodyVal}
-          className={styles["input-body"]}
-        />
-      </div>
+      <InputField
+        id="title"
+        labelText="Post Title"
+        onChange={(e) => setTitleVal(e.target.value)}
+        value={titleVal}
+      />
+      <InputField
+        element="textarea"
+        id="body"
+        labelText="Post Body"
+        onChange={(e) => handleChangeTextArea(e)}
+        value={bodyVal}
+        className={styles["input-body"]}
+      />
       <Link
         to="/posts"
         type="submit"
@@ -77,4 +66,4 @@ function CreatePostForm() {
   )
 }
 
-export { CreatePostForm }
+export { CreatePostPage }
