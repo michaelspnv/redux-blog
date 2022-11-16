@@ -18,7 +18,7 @@ function RegisterPage() {
         navigate("/")
       })
       .catch((error) => {
-        const errorCode = error.code
+        const errorCode = error.error.code
         const errorMessage = error.message
         console.error(errorCode, errorMessage)
       })

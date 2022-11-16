@@ -18,3 +18,8 @@
   border-radius: 5px;
   outline: none;
 }
+
+.error {
+  font-size: 18px;
+  color: red;
+}

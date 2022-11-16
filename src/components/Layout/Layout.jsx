@@ -5,8 +5,8 @@ import { Link, Outlet, useNavigate } from "react-router-dom"
 import styles from "./Layout.module.css"
 
 function Layout() {
-  const user = useSelector((state) => state.user)
-  const isAuth = user.token
+  const userInfo = useSelector((state) => state.user.info)
+  const isAuth = userInfo.token
 
   const dispatch = useDispatch()
 
@@ -33,7 +33,7 @@ function Layout() {
         </ul>
         {isAuth ? (
           <div className={styles["signed-in-regs"]}>
-            <p>You signed in as {user.email}.</p>
+            <p>You signed in as {userInfo.email}.</p>
             <button className={styles["signout-btn"]} onClick={handleSignOut}>
               Sign Out
             </button>
