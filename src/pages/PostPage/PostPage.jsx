@@ -13,7 +13,7 @@ function PostPage() {
 
   const lastPost = useSelector((state) => state.posts[state.posts.length - 1])
 
-  const isIdValid = id <= lastPost.id
+  const isIdValid = lastPost && id <= lastPost.id
 
   return (
     <React.Fragment>

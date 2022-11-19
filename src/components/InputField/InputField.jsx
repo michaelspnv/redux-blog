@@ -6,7 +6,8 @@ function InputField({
   element = "input",
   id,
   labelText,
-  errorText,
+  touched,
+  errors: { authError, validationError },
   className,
   ...props
 }) {
@@ -26,7 +27,10 @@ function InputField({
       ) : (
         <textarea className={classes} name={id} id={id} {...props} />
       )}
-      {errorText && <p className={styles.error}>{errorText}</p>}
+      {validationError && touched && (
+        <p className={styles.error}>{validationError}</p>
+      )}
+      {authError && <p className={styles.error}>{authError}</p>}
     </div>
   )
 }

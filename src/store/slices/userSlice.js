@@ -8,10 +8,11 @@ export const userSlice = createSlice({
       password: null,
       token: null,
     },
-    error: {
+    errors: {
       emailError: null,
       passwordError: null,
       requestError: null,
+      otherError: null,
     },
   },
   reducers: {
@@ -28,18 +29,25 @@ export const userSlice = createSlice({
     handleError: (state, action) => {
       switch (action.payload.errorCode) {
         case "auth/wrong-password":
-          state.error.passwordError = "Wrong password!"
+          state.errors.passwordError = "Wrong password!"
           break
         case "auth/user-not-found":
-          state.error.emailError = "E-Mail not found."
+          state.errors.emailError = "E-Mail not found."
+          break
+        case "auth/too-many-requests":
+          state.errors.requestError = "Too many requests! Try later."
+          break
+        case "auth/email-already-in-use":
+          state.errors.emailError = "E-Mail is already used."
           break
         default:
-          state.error.requestError = "Too many requests! Try later."
+          state.errors.otherError =
+            "Something went wrong. Try again or return later."
       }
     },
     clearError: (state) => {
-      for (let key in state.error) {
-        state.error[key] = null
+      for (let key in state.errors) {
+        state.errors[key] = null
       }
     },
   },
