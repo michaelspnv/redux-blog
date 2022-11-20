@@ -1,7 +1,31 @@
 .form {
-  width: 500px;
-  height: 300px;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 100px 50px;
+  width: 470px;
+  height: 350px;
+  border: 3px solid #c67476;
+  border-radius: 2px;
+  padding: 36px;
+  margin-top: 50px;
+}
+
+.title {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  margin: 0 0 35px;
+}
+
+.button {
+  width: 100%;
+  height: 40px;
+  background-color: #4a89dc;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  transition: .1s all;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #5c9bed;
 }

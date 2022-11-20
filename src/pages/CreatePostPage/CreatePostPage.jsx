@@ -43,14 +43,12 @@ function CreatePostPage() {
       <h1 className={styles.title}>Create New Post</h1>
       <InputField
         id="title"
-        labelText="Post Title"
         onChange={(e) => setTitleVal(e.target.value)}
         value={titleVal}
       />
       <InputField
         element="textarea"
         id="body"
-        labelText="Post Body"
         onChange={(e) => handleChangeTextArea(e)}
         value={bodyVal}
         className={styles["input-body"]}
