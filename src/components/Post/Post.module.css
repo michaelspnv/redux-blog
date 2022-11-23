@@ -9,26 +9,26 @@
   border-radius: 10px;
 }
 
-.post-header {
+.postHeader {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.post-content {
+.postContent {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.post-title {
+.postTitle {
   font-size: 30px;
   margin: 0;
 }
 
-.post-description {
+.postDescription {
   width: 100%;
   height: 88px;
   font-size: 18px;
@@ -39,7 +39,7 @@
   overflow: hidden;
 }
 
-.delete-button {
+.deleteButton {
   width: 30px;
   height: 30px;
   background-color: red;
@@ -48,6 +48,6 @@
   cursor: pointer;
 }
 
-.delete-button:hover {
+.deleteButton:hover {
   border: 1px solid #ccc;
 }

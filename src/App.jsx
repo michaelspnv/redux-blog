@@ -2,7 +2,6 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import { Layout } from "./components/Layout"
 import { HomePage } from "./pages/HomePage"
-import { ErrorPage } from "./pages/ErrorPage"
 import { publicRoutes, privateRoutes } from "./utils/routes"
 import { AuthRequired } from "./hoc/AuthRequired"
 

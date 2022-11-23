@@ -13,17 +13,17 @@ function Post({ id, title, description }) {
 
   return (
     <div className={styles.post}>
-      <div className={styles["post-header"]}>
-        <h2 className={styles["post-title"]}>{title}</h2>
+      <div className={styles.postHeader}>
+        <h2 className={styles.postTitle}>{title}</h2>
         <button
-          className={styles["delete-button"]}
+          className={styles.deleteButton}
           onClick={() => handleCreate(id)}
         >
           x
         </button>
       </div>
-      <div className={styles["post-content"]}>
-        <p className={styles["post-description"]}>{description}</p>
+      <div className={styles.postContent}>
+        <p className={styles.postDescription}>{description}</p>
         <Link to={`/posts/${id}`}>Read more</Link>
       </div>
     </div>

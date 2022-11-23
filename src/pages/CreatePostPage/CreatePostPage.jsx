@@ -51,12 +51,12 @@ function CreatePostPage() {
         id="body"
         onChange={(e) => handleChangeTextArea(e)}
         value={bodyVal}
-        className={styles["input-body"]}
+        className={styles.inputBody}
       />
       <Link
         to="/posts"
         onClick={() => handleCreate(id, titleVal, bodyVal, description)}
-        className={styles["create-button"]}
+        className={styles.createButton}
       >
         Create Post
       </Link>

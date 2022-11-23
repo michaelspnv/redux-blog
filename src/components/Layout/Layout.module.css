@@ -1,15 +1,29 @@
-.list-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
+.wrapper {
+  width: 100%;
+  padding: 0 72px;
 }
 
-.list {
-  font-size: 24px;
-  margin: 20px 0;
-  padding: 0;
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 75px;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 5px;
+  color: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 .link {
@@ -18,18 +32,15 @@
   transition: all .1s;
 }
 
-.link:not(:last-child) {
-  margin-right: 50px;
+.link--small {
+  font-size: 14px;
 }
 
 .link:hover {
   color: #666;
 }
 
-.signed-in-regs {
-  position: absolute;
-  top: 0;
-  right: 10px;
+.signedInRegs {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,30 +48,31 @@
   height: 100%;
 }
 
-.signed-out-regs {
-  position: absolute;
-  top: 0;
-  right: 10px;
+.signedOutRegs {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
   height: 100%;
 }
 
-.regs-link {
-  padding: 10px;
+.buttonWrapper {
+  margin-right: 10px;
 }
 
-.regs-link:first-child {
-  margin-right: 15px;
+.separator {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: -50%;
+  width: 200%;
+  height: 1px;
+  background-color: #e4e4e4;
 }
 
-.content {
+/* .content {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 30px auto;
-}
+} */

@@ -1,13 +1,13 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import { useAuth } from "../hooks/auth"
 import { Navigate } from "react-router-dom"
 
 function AuthRequired({ children }) {
-  const isAuthorized = useSelector((state) => state.user.info.token)
+  const isAuth = useAuth()
 
   return (
     <React.Fragment>
-      {isAuthorized ? children : <Navigate to="/sign-in" />}
+      {isAuth ? children : <Navigate to="/sign-in" />}
     </React.Fragment>
   )
 }
