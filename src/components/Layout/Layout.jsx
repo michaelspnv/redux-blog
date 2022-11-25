@@ -1,16 +1,17 @@
-import React, { useState } from "react"
+import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { removeUser } from "../../store/slices/userSlice"
 import { useAuth } from "../../hooks/auth"
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import { Button } from "../Button"
-import { MenuButton } from "../MenuButton"
-import { Menu } from "../Menu"
+import { PopupProvider } from "../../hoc/PopupProvider"
+import { PopupMenu } from "../PopupMenu"
+import { NavPanel } from "../NavPanel"
 import classNames from "classnames/bind"
 import styles from "./Layout.module.css"
 
 function Layout() {
-  const cx = classNames.bind(styles)
+  const cn = classNames.bind(styles)
 
   const userInfo = useSelector((state) => state.user.info)
 
@@ -20,8 +21,6 @@ function Layout() {
 
   const isAuth = useAuth()
 
-  const [isOpen, setOpen] = useState(false)
-
   const signOut = () => {
     dispatch(removeUser())
     navigate("/sign-in")
@@ -30,8 +29,16 @@ function Layout() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <MenuButton onClick={() => setOpen(!isOpen)} />
-        {isOpen && <Menu setOpen={setOpen} />}
+        <PopupProvider>
+          <PopupMenu>
+            <>
+              <div className={styles.line} />
+              <div className={styles.line} />
+              <div className={styles.line} />
+            </>
+            <NavPanel />
+          </PopupMenu>
+        </PopupProvider>
         <Link to="/" className={styles.title}>
           Blog
         </Link>
@@ -47,7 +54,7 @@ function Layout() {
             </div>
             <Link
               to="/sign-in"
-              className={cx(styles.link, styles["link--small"])}
+              className={cn(styles.authLink, styles["authLink--small"])}
             >
               Sign In
             </Link>

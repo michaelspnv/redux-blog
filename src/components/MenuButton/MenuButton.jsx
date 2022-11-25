@@ -1,12 +1,18 @@
-import React from "react"
+import React, { useContext } from "react"
+import { PopupContext } from "../../hoc/PopupProvider"
+import classNames from "classnames/bind"
 import styles from "./Menu-button.module.css"
 
-function MenuButton({ onClick }) {
+function MenuButton({ buttonRef, className, children }) {
+  const cx = classNames.bind(styles)
+
+  const classes = cx("button", className)
+
+  const { toggleMenu } = useContext(PopupContext)
+
   return (
-    <button onClick={onClick} className={styles.body}>
-      <div className={styles.line}></div>
-      <div className={styles.line}></div>
-      <div className={styles.line}></div>
+    <button onClick={toggleMenu} ref={buttonRef} className={classes}>
+      {children}
     </button>
   )
 }

@@ -1,0 +1,24 @@
+.navPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #636363;
+  font-size: 24px;
+  padding: 5px 15px;
+  transition: .1s all;
+}
+
+.navLink:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.navLink:hover {
+  color: #000;
+}

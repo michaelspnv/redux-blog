@@ -1,4 +1,4 @@
-.body {
+.button {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7,14 +7,4 @@
   outline: none;
   background-color: #fff;
   cursor: pointer;
-}
-
-.line {
-  width: 20px;
-  height: 2px;
-  background-color: #1f1f1f;
-}
-
-.line:not(:last-child) {
-  margin-bottom: 4px;
 }
