@@ -7,7 +7,7 @@ function AuthRequired({ children }) {
 
   return (
     <React.Fragment>
-      {isAuth ? children : <Navigate to="/sign-in" />}
+      {isAuth ? children : <Navigate to="/sign-in" replace={true} />}
     </React.Fragment>
   )
 }

@@ -1,12 +1,12 @@
 import { useEffect } from "react"
 
-function useOnClickOutside(ref, btn, handler) {
+function useOnClickOutside(popupRef, btnRef, handler) {
   useEffect(() => {
     const listener = (event) => {
       if (
-        ref.current &&
-        !ref.current.contains(event.target) &&
-        !btn.current.contains(event.target)
+        popupRef.current &&
+        !popupRef.current.contains(event.target) &&
+        !btnRef.current.contains(event.target)
       ) {
         handler()
       }

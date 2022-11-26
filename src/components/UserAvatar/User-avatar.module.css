@@ -1,0 +1,18 @@
+.avatar {
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #008bda;
+  border: 1px solid #e3e3e3;
+  border-radius: 50%;
+}
+
+.avatarPopup {
+  top: 75px;
+  right: -50px;
+  width: 300px;
+  height: 500px;
+}

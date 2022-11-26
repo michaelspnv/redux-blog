@@ -10,7 +10,6 @@ function LoginPage() {
 
   const formInfo = useRegister({
     action: "login",
-    navigateTo: "/posts",
   })
 
   const dispatch = useDispatch()

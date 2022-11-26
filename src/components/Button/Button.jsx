@@ -11,7 +11,7 @@ function Button({ to, children, className, ...props }) {
   return (
     <React.Fragment>
       {to ? (
-        <Link to={to} className={classes}>
+        <Link to={to} className={classes} {...props}>
           {children}
         </Link>
       ) : (

@@ -1,7 +1,5 @@
 .popup {
   position: absolute;
-  top: 120%;
-  left: -30px;
   z-index: 99;
   display: flex;
   justify-content: center;

@@ -1,51 +1,37 @@
 import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { removeUser } from "../../store/slices/userSlice"
 import { useAuth } from "../../hooks/auth"
-import { Link, Outlet, useNavigate } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 import { Button } from "../Button"
-import { PopupProvider } from "../../hoc/PopupProvider"
 import { PopupMenu } from "../PopupMenu"
-import { NavPanel } from "../NavPanel"
+import { NavMenu } from "../NavMenu"
+import { UserAvatar } from "../UserAvatar"
+import WriteIcon from "../../../public/svg/write-icon.svg"
 import classNames from "classnames/bind"
 import styles from "./Layout.module.css"
 
 function Layout() {
   const cn = classNames.bind(styles)
 
-  const userInfo = useSelector((state) => state.user.info)
-
-  const dispatch = useDispatch()
-
-  const navigate = useNavigate()
-
   const isAuth = useAuth()
-
-  const signOut = () => {
-    dispatch(removeUser())
-    navigate("/sign-in")
-  }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <PopupProvider>
-          <PopupMenu>
-            <>
-              <div className={styles.line} />
-              <div className={styles.line} />
-              <div className={styles.line} />
-            </>
-            <NavPanel />
-          </PopupMenu>
-        </PopupProvider>
+        <PopupMenu>
+          <NavMenu />
+        </PopupMenu>
         <Link to="/" className={styles.title}>
           Blog
         </Link>
         {isAuth ? (
           <div className={styles.signedInRegs}>
-            <p>You signed in as {userInfo.email}.</p>
-            <Button onClick={signOut}>Sign Out</Button>
+            <PopupMenu>
+              <UserAvatar />
+            </PopupMenu>
+            <Button to="/posts/create" className={styles.writeButton}>
+              <img src={WriteIcon} alt="write icon" width="15" />
+              <p className={styles.writeButtonText}>Write</p>
+            </Button>
           </div>
         ) : (
           <div className={styles.signedOutRegs}>

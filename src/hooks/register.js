@@ -9,13 +9,12 @@ import {
 } from "firebase/auth"
 import { auth } from "../firebase"
 
-function useRegister(config) {
-  const {
-    action,
-    validate: { validateOnChange = false, validateOnBlur = false } = false,
-    navigateTo = "/",
-  } = config
-
+function useRegister({
+  action,
+  navigateTo = "/",
+  validateOnChange = false,
+  validateOnBlur = false,
+}) {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -49,7 +48,14 @@ function useRegister(config) {
       createUserWithEmailAndPassword(auth, values.email, values.password)
         .then((userCredential) => {
           const user = userCredential.user
-          navigate("/")
+          dispatch(
+            createUser({
+              email: values.email,
+              password: values.password,
+              token: user.accessToken,
+            })
+          )
+          navigate(navigateTo)
         })
         .catch((error) => {
           const errorCode = error.code

@@ -26,37 +26,31 @@
   text-decoration: none;
 }
 
-.line {
-  width: 20px;
-  height: 2px;
-  background-color: #1f1f1f;
-}
-
-.line:not(:last-child) {
-  margin-bottom: 4px;
-}
-
-.navMenu {
+.signedInRegs {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 550px;
+  height: 100%;
+}
+
+.writeButton {
+  margin-left: 30px;
+}
+
+.writeButtonText {
+  margin: 0 0 0 6px;
+}
+
+.signedOutRegs {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
-.navLink {
-  color: #636363;
-  text-decoration: none;
-  transition: .1s all;
-  font-size: 24px;
-  padding: 5px 15px;
-}
-
-.navLink:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.navLink:hover {
-  color: #000;
+.buttonWrapper {
+  margin-right: 10px;
 }
 
 .authLink {
@@ -71,25 +65,6 @@
 
 .authLink:hover {
   color: #666;
-}
-
-.signedInRegs {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 550px;
-  height: 100%;
-}
-
-.signedOutRegs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.buttonWrapper {
-  margin-right: 10px;
 }
 
 .separator {

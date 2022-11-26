@@ -3,7 +3,7 @@ import { PopupContext } from "../../hoc/PopupProvider"
 import classNames from "classnames/bind"
 import styles from "./Menu-button.module.css"
 
-function MenuButton({ buttonRef, className, children }) {
+function MenuButton({ btnRef, className, children }) {
   const cx = classNames.bind(styles)
 
   const classes = cx("button", className)
@@ -11,7 +11,7 @@ function MenuButton({ buttonRef, className, children }) {
   const { toggleMenu } = useContext(PopupContext)
 
   return (
-    <button onClick={toggleMenu} ref={buttonRef} className={classes}>
+    <button onClick={toggleMenu} ref={btnRef} className={classes}>
       {children}
     </button>
   )

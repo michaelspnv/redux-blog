@@ -16,27 +16,9 @@
   align-items: center;
 }
 
-.postContent {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .postTitle {
   font-size: 30px;
   margin: 0;
-}
-
-.postDescription {
-  width: 100%;
-  height: 88px;
-  font-size: 18px;
-  word-wrap: break-word;
-  text-indent: 20px;
-  line-height: 22px;
-  margin-bottom: 10px;
-  overflow: hidden;
 }
 
 .deleteButton {
@@ -50,4 +32,22 @@
 
 .deleteButton:hover {
   border: 1px solid #ccc;
+}
+
+.postContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.postDescription {
+  width: 100%;
+  height: 88px;
+  font-size: 18px;
+  word-wrap: break-word;
+  text-indent: 20px;
+  line-height: 22px;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
