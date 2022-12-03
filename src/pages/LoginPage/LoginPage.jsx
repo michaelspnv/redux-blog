@@ -1,15 +1,16 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
-import { clearError } from "../store/slices/userSlice"
-import { useRegister } from "../hooks/register"
-import { Form } from "../components/Form"
-import { InputField } from "../components/InputField"
+import { clearError } from "../../store/slices/userSlice"
+import { useRegister } from "../../hooks/register"
+import { Form } from "../../components/Form"
+import { InputField } from "../../components/InputField"
+import styles from "./Login-page.module.css"
 
-function RegisterPage() {
+function LoginPage() {
   const authErrors = useSelector((state) => state.user.errors)
 
   const formInfo = useRegister({
-    action: "register",
+    action: "login",
   })
 
   const dispatch = useDispatch()
@@ -23,7 +24,7 @@ function RegisterPage() {
   }
 
   return (
-    <Form title="Sign Up" buttonText="Sign Up" onSubmit={handleSubmit}>
+    <Form title="Sign In" buttonText="Sign In" onSubmit={handleSubmit}>
       <InputField
         id="email"
         placeholder="Email Address"
@@ -31,6 +32,7 @@ function RegisterPage() {
           authError: authErrors.emailError,
           validationError: formInfo.errors.email,
         }}
+        className={styles.emailInput}
         onChange={formInfo.handleChange}
         value={formInfo.values.email}
       />
@@ -38,8 +40,10 @@ function RegisterPage() {
         id="password"
         placeholder="Password"
         errors={{
+          authError: authErrors.passwordError,
           validationError: formInfo.errors.password,
         }}
+        className={styles.passwordInput}
         onChange={formInfo.handleChange}
         value={formInfo.values.password}
       />
@@ -47,4 +51,4 @@ function RegisterPage() {
   )
 }
 
-export { RegisterPage }
+export { LoginPage }

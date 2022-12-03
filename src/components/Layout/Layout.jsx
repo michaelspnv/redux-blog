@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router-dom"
 import { Button } from "../Button"
 import { PopupMenu } from "../PopupMenu"
 import { NavMenu } from "../NavMenu"
-import { UserAvatar } from "../UserAvatar"
+import { UserAvatarPopup } from "../UserAvatarPopup"
 import WriteIcon from "../../../public/svg/write-icon.svg"
 import classNames from "classnames/bind"
 import styles from "./Layout.module.css"
@@ -26,7 +26,7 @@ function Layout() {
         {isAuth ? (
           <div className={styles.signedInRegs}>
             <PopupMenu>
-              <UserAvatar />
+              <UserAvatarPopup />
             </PopupMenu>
             <Button to="/posts/create" className={styles.writeButton}>
               <img src={WriteIcon} alt="write icon" width="15" />
